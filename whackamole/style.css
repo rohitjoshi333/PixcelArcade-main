@@ -1,0 +1,175 @@
+/* General Reset and Base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #70b5e2;
+  background-color: #1b262c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Header */
+.heading {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: #bbe1fa;
+  margin: 32px 0 16px;
+  user-select: none;
+  letter-spacing: 1px;
+}
+
+/* Score and Timer */
+.score,
+.time {
+  font-size: 20px;
+  margin: 8px 12px;
+  color: #ffffff;
+}
+
+/* Button Section */
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 16px 0;
+}
+
+button {
+  color: #ffffff;
+  padding: 12px 16px;
+  background-color: #0f4c75;
+  border-radius: 8px;
+  border: none;
+  width: 130px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+button:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+button:hover:enabled {
+  background-color: #3282b8;
+  transform: scale(1.05);
+}
+
+/* Game Area */
+.game-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+  gap: 12px;
+  width: 90%;
+  max-width: 600px;
+  padding: 20px;
+  margin: 20px 0;
+}
+
+/* Holes */
+.hole {
+  height: 80px;
+  background-color: #0f4c75;
+  border: 3px solid #4a9dd4;
+  border-radius: 50%;
+  transition: background-color 0.2s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.hole:hover {
+  background-color: #3282b8;
+  box-shadow: 0 0 10px #64b5f6;
+  cursor: pointer;
+}
+
+/* Mole */
+.mole {
+  background-image: url("mole.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Footer */
+.footer {
+  background-color: #0f4c75;
+  color: #bbe1fa;
+  font-size: 16px;
+  text-align: center;
+  padding: 20px;
+  width: 100%;
+  border-top: 2px solid #3282b8;
+  margin-top: auto;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.4);
+  transition: background-color 0.3s ease;
+}
+
+.footer:hover {
+  background-color: #144e74;
+}
+
+.footer a {
+  color: #70b5e2;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: #ffffff;
+}
+
+/* Optional Classes */
+.red:hover {
+  color: red;
+  transition: 0.3s;
+}
+
+.jstxt {
+  color: yellow;
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+  .hole {
+    height: 60px;
+  }
+
+  .mole {
+    background-size: 60px;
+  }
+
+  .game-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .heading {
+    font-size: 24px;
+  }
+
+  .score,
+  .time {
+    font-size: 18px;
+  }
+
+  .ButtonContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  button {
+    width: 90%;
+    max-width: 200px;
+  }
+
+  .footer {
+    font-size: 14px;
+  }
+}

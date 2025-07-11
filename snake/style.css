@@ -1,0 +1,167 @@
+/* Base Styles */
+body {
+  background-color: #1B262C;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #BBE1FA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  text-align: center;
+  font-size: 28px;
+  margin: 24px 0;
+  user-select: none;
+}
+
+.red:hover {
+  color: rgb(157, 1, 1);
+  transition: color 0.5s ease;
+}
+
+.jstxt {
+  color: yellow;
+}
+
+/* Canvas Board */
+canvas#board {
+  background-color: #0f4c75;
+  border: 2px solid #BBE1FA;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  display: block;
+  margin: 0 auto;
+}
+
+/* Wrapper for Game & Controls */
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 80px; /* extra space to show footer */
+}
+
+/* Mobile Controls */
+.mobile-controls {
+  display: none;
+  margin-top: 20px;
+}
+
+.arrow-row {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 5px 0;
+}
+
+.mobile-controls button {
+  background-color: #3282b8;
+  border: none;
+  padding: 14px;
+  color: white;
+  font-size: 20px;
+  border-radius: 10px;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.mobile-controls button:hover {
+  background-color: #4a9dd4;
+  transform: translateY(-2px);
+}
+
+/* Action Buttons (Restart & Home) */
+.action-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.action-buttons button,
+.action-buttons a {
+  background-color: #3282b8;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.action-buttons button:hover,
+.action-buttons a:hover {
+  background-color: #4a9dd4;
+  transform: translateY(-2px);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  font-size: 16px;
+  padding: 16px;
+  user-select: none;
+  color: #BBE1FA;
+  width: 100%;
+  background-color: #0f4c75;
+  border-top: 2px solid #3282b8;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.footer a {
+  color: #BBE1FA;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  canvas#board {
+    width: 300px;
+    height: 300px;
+  }
+  .mobile-controls {
+    display: block;
+  }
+  .heading {
+    font-size: 22px;
+  }
+  .footer {
+    font-size: 14px;
+  }
+}
+
+.instructions {
+  color: #BBE1FA;
+  font-size: 18px;
+  margin-top: 10px;
+  text-align: center;
+  max-width: 90%;
+  padding: 10px;
+  background-color: rgba(15, 76, 117, 0.6);
+  border: 1px solid #3282b8;
+  border-radius: 8px;
+  user-select: none;
+  display: none; /* shown only for desktop */
+}
+
+@media (min-width: 601px) {
+  .instructions {
+    display: block;
+  }
+}

@@ -1,0 +1,332 @@
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body Styling */
+html, body {
+  font-family: 'Press Start 2P', cursive;
+  background-color: #1b262c;
+  color: #bbe1fa;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Scroll Lock During Load */
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  inset: 0;
+  background-color: #000d1a;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: pulse 2s infinite;
+  gap: 20px;
+}
+
+#loader.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.spinner {
+  display: flex;
+  gap: 10px;
+}
+.pixel {
+  width: 20px;
+  height: 20px;
+  background: #00ffff;
+  animation: pixelBlink 1.4s infinite ease-in-out;
+  border-radius: 3px;
+}
+.pixel:nth-child(2) { animation-delay: 0.2s; }
+.pixel:nth-child(3) { animation-delay: 0.4s; }
+.pixel:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes pixelBlink {
+  0%, 100% { background: #00ffff; }
+  50% { background: #005577; }
+}
+
+/* Heading */
+.heading {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 40px 16px 20px;
+  user-select: none;
+  animation: bounceIn 1.2s ease-in-out;
+}
+.red {
+  color: crimson;
+}
+.jstxt {
+  color: yellow;
+}
+.glitch {
+  color: cyan;
+  animation: glitch 2s infinite;
+}
+
+/* Cards Layout */
+.gameslist {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.card {
+  background-color: #0f4c75;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  color: #bbe1fa;
+  cursor: pointer;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  text-decoration: none;
+  font-size: 0.8rem;
+  user-select: none;
+}
+.card:hover {
+  background-color: #3282b8;
+  transform: scale(1.05);
+  color: yellow;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  background: #0f4c75;
+  color: #bbe1fa;
+  padding: 16px 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.75rem;
+  animation: slideUp 1.5s ease-in-out;
+}
+.footer a {
+  color: #ffd369;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* Contact Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 20px auto 80px;
+  gap: 16px;
+}
+.contact-form label {
+  font-weight: bold;
+  color: #ffd369;
+}
+.contact-form input,
+.contact-form textarea {
+  background: #0f4c75;
+  border: none;
+  border-radius: 6px;
+  padding: 12px;
+  color: #bbe1fa;
+  font-size: 14px;
+}
+.contact-form button {
+  background-color: crimson;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+.contact-form button:hover {
+  background-color: darkred;
+}
+
+/* Animations */
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red; }
+  25% { text-shadow: -2px 0 green; }
+  50% { text-shadow: 2px 0 blue; }
+  75% { text-shadow: -2px 0 yellow; }
+  100% { text-shadow: 2px 0 red; }
+}
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive Tweaks */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 1rem;
+    margin-top: 30px;
+  }
+  .card {
+    font-size: 0.75rem;
+    padding: 18px;
+  }
+  .footer {
+    font-size: 0.7rem;
+    padding: 12px 5px;
+  }
+}
+@media (max-width: 480px) {
+  .heading {
+    font-size: 0.9rem;
+    margin: 20px 10px;
+  }
+  .card {
+    font-size: 0.7rem;
+    padding: 16px;
+  }
+  .contact-form {
+    width: 90%;
+  }
+}
+
+/* === Page Loader === */
+#loader {
+  position: fixed;
+  inset: 0;
+  background-color: #000d1a;
+  color: white;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  animation: pulse 2s infinite;
+}
+.spinner {
+  display: flex;
+  gap: 10px;
+}
+.pixel {
+  width: 20px;
+  height: 20px;
+  background: #00ffff;
+  animation: pixelBlink 1.4s infinite ease-in-out;
+  border-radius: 3px;
+}
+.pixel:nth-child(2) { animation-delay: 0.2s; }
+.pixel:nth-child(3) { animation-delay: 0.4s; }
+.pixel:nth-child(4) { animation-delay: 0.6s; }
+.loader-text {
+  font-size: 12px;
+  text-align: center;
+}
+#loader.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+@keyframes pixelBlink {
+  0%, 100% { background: #00ffff; }
+  50% { background: #005577; }
+}
+
+/* === Contact Form Styling === */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 30px auto 100px;
+  gap: 16px;
+  animation: bounceIn 1s ease;
+}
+.contact-form label {
+  font-weight: bold;
+  color: #ffd369;
+}
+.contact-form input,
+.contact-form textarea {
+  background-color: #0f4c75;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  color: #bbe1fa;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background-color: #3282b8;
+  outline: none;
+}
+.contact-form button {
+  background-color: crimson;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.contact-form button:hover {
+  background-color: darkred;
+  transform: scale(1.03);
+}
+
+/* === Status Messages === */
+.form-status {
+  font-size: 12px;
+  text-align: center;
+}
+.form-status.success {
+  color: limegreen;
+}
+.form-status.error {
+  color: red;
+}
+.form-status.loading {
+  color: yellow;
+}
+
+/* === Responsive Tweaks === */
+@media (max-width: 500px) {
+  .contact-form {
+    width: 90%;
+    font-size: 12px;
+  }
+  .footer {
+    font-size: 12px;
+    padding: 12px;
+  }
+}
+
+/* === Animations === */
+@keyframes bounceIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}

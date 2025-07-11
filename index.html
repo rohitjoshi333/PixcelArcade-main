@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pixel Arcade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="no-scroll">
+  <div id="loader">
+    <div class="spinner">
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+    </div>
+    <div class="loader-text">Pixel Loading...</div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="heading">
+      <span class="red">Welcome</span> to <span class="glitch">Pixel</span> <span class="jstxt">Arcade</span>
+    </div>
+
+    <div class="gameslist">
+      <a href="memory/" class="card">Memory Game</a>
+      <a href="whackamole/" class="card">Whack A Mole</a>
+      <a href="snake/" class="card">Snake</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    Built with 💥 by <a target="_blank" href="https://github.com/rohitjoshi333">Rohit</a> | © 2025
+    &nbsp;|&nbsp;
+    <a href="contact.html" class="contact-link">Contact Me</a>
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      document.body.classList.remove("no-scroll");
+      loader.classList.add("fade-out");
+      setTimeout(() => (loader.style.display = "none"), 1000);
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+      });
+    });
+
+    document.querySelectorAll(".card").forEach((card) => {
+      observer.observe(card);
+    });
+  </script>
+</body>
+</html>

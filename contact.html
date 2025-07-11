@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Me - Pixel Arcade</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="contactstyle.css" />
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+  <script>
+    (function () {
+      emailjs.init("-4RhqaEp8uKR2j0Y7");
+    })();
+  </script>
+</head>
+<body class="no-scroll">
+  <!-- Loader -->
+  <div id="loader">
+    <div class="spinner">
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+      <div class="pixel"></div>
+    </div>
+    <div class="loader-text">Connecting to Arcade Mail...</div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="heading">Contact Me</div>
+    <form id="contact-form" class="contact-form">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="from_name" required placeholder="Your name" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="reply_to" required placeholder="you@example.com" />
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required placeholder="Type your message..."></textarea>
+
+      <button type="submit" id="submit-btn">🚀 Send</button>
+      <p id="form-status" class="form-status"></p>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <a href="index.html" class="contact-link">&larr; Back to Home</a>
+  </footer>
+
+  <script>
+    // Page loader
+    window.addEventListener("load", () => {
+      const loader = document.getElementById("loader");
+      document.body.classList.remove("no-scroll");
+      loader.classList.add("fade-out");
+      setTimeout(() => (loader.style.display = "none"), 1000);
+    });
+
+    // Form submission logic
+    document.getElementById("contact-form").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const status = document.getElementById("form-status");
+      const btn = document.getElementById("submit-btn");
+
+      status.innerText = "Sending...";
+      status.className = "form-status loading";
+
+      btn.disabled = true;
+      btn.innerText = "Sending...";
+
+      emailjs.sendForm("service_onl42rs", "template_xd0i4it", this)
+        .then(() => {
+          status.innerText = "✅ Message sent successfully!";
+          status.className = "form-status success";
+          btn.innerText = "Sent 🎉";
+          this.reset();
+        })
+        .catch((err) => {
+          console.error("EmailJS Error:", err);
+          status.innerText = "❌ Failed to send. Try again.";
+          status.className = "form-status error";
+          btn.innerText = "Send Again";
+        })
+        .finally(() => {
+          btn.disabled = false;
+        });
+    });
+  </script>
+</body>
+</html>

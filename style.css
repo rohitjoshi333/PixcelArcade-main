@@ -1,0 +1,243 @@
+/* Base styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Press Start 2P', cursive;
+  background-color: #1b262c;
+  color: #bbe1fa;
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+  user-select: none;
+}
+
+/* Wrapper to center content vertically */
+.content-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(100vh - 60px); /* leave space for footer */
+  padding: 0 10px;
+  text-align: center;
+}
+
+/* Links */
+a {
+  color: #bbe1fa;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #ffd369;
+  text-decoration: underline;
+}
+
+/* Loader Styles */
+#loader {
+  position: fixed;
+  inset: 0;
+  background-color: #000d1a;
+  color: #fff;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  animation: pulse 2s infinite;
+  gap: 20px;
+  text-align: center;
+}
+
+#loader.fade-out {
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+/* Spinner - pixel style */
+.spinner {
+  display: flex;
+  gap: 10px;
+}
+
+.pixel {
+  width: 20px;
+  height: 20px;
+  background: #00ffff;
+  animation: pixelBlink 1.4s infinite ease-in-out;
+  border-radius: 3px;
+}
+
+.pixel:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.pixel:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.pixel:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes pixelBlink {
+  0%, 100% { background: #00ffff; filter: brightness(1); }
+  50% { background: #005577; filter: brightness(0.4); }
+}
+
+/* Heading */
+.heading {
+  font-size: 18px;
+  margin-bottom: 30px;
+  user-select: none;
+  animation: bounceIn 1.2s ease-in-out;
+}
+.red {
+  color: red;
+  transition: color 0.4s ease;
+}
+.red:hover {
+  color: darkred;
+}
+.jstxt {
+  color: yellow;
+}
+.glitch {
+  color: cyan;
+  position: relative;
+  animation: glitch 2s infinite;
+}
+
+/* Games List & Cards */
+.gameslist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card {
+  background-color: #0f4c75;
+  border-radius: 12px;
+  padding: 30px;
+  width: 200px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.4s ease, background-color 0.4s ease;
+  opacity: 0;
+  transform: translateY(40px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #bbe1fa;
+  cursor: pointer;
+  text-decoration: none;
+  user-select: none;
+}
+
+.card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s ease-out;
+}
+
+.card:hover {
+  background-color: #3282b8;
+  transform: scale(1.05) rotate(-1deg);
+  color: #ffd369;
+}
+
+/* Footer */
+.footer {
+  font-size: 14px;
+  text-align: center;
+  color: #bbe1fa;
+  background: #0f4c75;
+  padding: 18px 10px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  animation: slideUp 1.5s ease-in-out;
+  user-select: none;
+}
+
+/* Animations */
+@keyframes glitch {
+  0% { text-shadow: 2px 0 red; }
+  25% { text-shadow: -2px 0 green; }
+  50% { text-shadow: 2px 0 blue; }
+  75% { text-shadow: -2px 0 yellow; }
+  100% { text-shadow: 2px 0 red; }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
+}
+@keyframes bounceIn {
+  0% { transform: scale(0.8); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .card {
+    width: 90%;
+  }
+  .heading {
+    font-size: 14px;
+  }
+}
+
+/* Responsive for mobile */
+@media (max-width: 700px) {
+  .gameslist {
+    max-width: 100%;
+    padding: 0 10px;
+    gap: 16px;
+  }
+  .card {
+    width: 45%; /* Two cards per row on tablets/smaller screens */
+    padding: 20px;
+    font-size: 12px;
+  }
+  .heading {
+    font-size: 16px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .gameslist {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .card {
+    width: 90%;  /* One card per row on phones */
+    padding: 18px;
+    font-size: 14px;
+    margin-left:-1rem ;
+  }
+  .heading {
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding: 0 5px;
+  }
+  .footer {
+    font-size: 12px;
+    padding: 12px 6px;
+  }
+}

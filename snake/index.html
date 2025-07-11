@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css" />
+  <title>Snake Game</title>
+</head>
+<body>
+  <div class="heading">
+    <span class="red">Snake</span>Game
+  </div>
+
+  <div class="game-wrapper">
+    <canvas id="board"></canvas>
+
+    <div id="instructions" class="instructions">
+      Press <strong>Arrow Keys</strong> or <strong>W/A/S/D</strong> to Start and Control the Snake
+    </div>
+
+    
+    <!-- Mobile Controls -->
+    <div class="mobile-controls">
+      <div class="arrow-row">
+        <button id="up">▲</button>
+      </div>
+      <div class="arrow-row">
+        <button id="left">◀</button>
+        <button id="down">▼</button>
+        <button id="right">▶</button>
+      </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+      <button id="restart">Restart</button>
+      <a href="../index.html" id="home">Back to Home</a>
+    </div>
+  </div>
+
+  <div class="footer">
+    <span class="red">Pixel Arcade</span><span class="jstxt">JS</span>Games by
+    <a target="_blank" href="https://github.com/rohitjoshi333">Rohit</a>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
