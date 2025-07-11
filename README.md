@@ -13,11 +13,8 @@ Designed to capture the nostalgia of classic 8-bit games, this project brings re
 
 🚀 Getting Started
 Clone the repository:
-
-bash
-Copy
-Edit
 git clone https://github.com/rohitjoshi333/PixcelArcade-main.git
+
 Open index.html in your browser
 
 Start playing instantly—no build tools needed!
