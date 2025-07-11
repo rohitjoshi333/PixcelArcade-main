@@ -19,9 +19,3 @@ Open index.html in your browser
 
 Start playing instantly—no build tools needed!
 
-💡 Ideal For
-Web development learners exploring interactive projects
-
-Gamers looking for nostalgic mini-games
-
-Developers wanting to build responsive games without libraries
